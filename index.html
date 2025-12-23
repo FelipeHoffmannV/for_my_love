@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História de Amor</title>
+    <link href="fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --cor-fundo: #fff5f7;
+            --cor-amor: #e91e63;
+            --cor-texto: #5d4037;
+            --cor-amizade: #ffb74d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            overflow: hidden;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--cor-amor);
+            margin-bottom: 15px;
+        }
+
+        /* Estilo Polaroid para as Fotos */
+        .moldura-foto {
+            background-color: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+            transform: rotate(-2deg); /* Inclinação charmosa */
+            transition: 0.5s;
+            margin-bottom: 20px;
+            max-width: 90%;
+        }
+
+        .moldura-foto:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .moldura-foto img {
+            width: 280px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            line-height: 1.4;
+        }
+
+        .botoes-navegacao {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-proximo { background-color: var(--cor-amor); color: white; }
+        .btn-anterior { background-color: var(--cor-amizade); color: white; }
+
+        /* Sessão Final */
+        #pergunta-final { background: linear-gradient(135deg, #fff5f7 0%, #ffd1dc 100%); }
+        .container-escolha { margin-top: 30px; position: relative; height: 100px; width: 300px; }
+        #btn-sim { background-color: #4caf50; color: white; font-size: 1.5rem; width: 120px; }
+        #btn-nao { background-color: #f44336; color: white; position: absolute; transition: 0.2s; }
+        .frase-nao { color: var(--cor-amor); font-weight: bold; margin-top: 20px; height: 24px; }
+
+        /* Corações flutuantes */
+        .heart { position: absolute; color: rgba(233, 30, 99, 0.2); animation: float 6s linear infinite; z-index: -1; }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SESSÃO 1 -->
+    <section id="s1">
+        <h1>1. O Começo</h1>
+        <div class="moldura-foto">
+            <img src="img/essa.jpeg" alt="O começo">
+        </div>
+        <p>Quando a gente se conheceu, eu não tinha ideia da importância que você teria na minha vida, do quanto você me faria feliz...</p>
+        <div class="botoes-navegacao">
+            <button class="btn-proximo" onclick="irPara('s2')">Continuar história →</button>
+        </div>
+    </section>
+
+    <!-- SESSÃO 2 -->
+    <section id="s2">
+        <h1>2. A Decisão</h1>
+        <div class="moldura-foto" style="transform: rotate(2deg);">
+            <img src="img/this.jpeg" alt="A decisão">
+        </div>
+        <p>Bom, demorou muito, mas alguma coisa dentro de mim me dizia que você é a mulher da minha vida, então antes tarde do que nunca, decidi que é com você que quero viver para sempre...</p>
+        <div class="botoes-navegacao">
+            <button class="btn-anterior" onclick="irPara('s1')">← Voltar</button>
+            <button class="btn-proximo" onclick="irPara('s3')">Avançar →</button>
+        </div>
+    </section>
+
+    <!-- SESSÃO 3 -->
+    <section id="s3">
+        <h1>3. A Trajetória</h1>
+        <div class="moldura-foto">
+            <img src="img/essaaqui.jpeg" alt="Trajetória">
+        </div>
+        <p>E não foi fácil eu sei... Te magoei várias vezes, e sei que não há nada que mude isso, me arrependo todos os dias das coisas que falei que te magoaram e te fizeram sofrer, gostaria de voltar no tempo e fazer diferente, mas infelizmente não posso..., mas saiba que estou dando o meu melhor pra te fazer feliz.</p>
+        <div class="botoes-navegacao">
+            <button class="btn-anterior" onclick="irPara('s2')">← Voltar</button>
+            <button class="btn-proximo" onclick="irPara('s4')">Avançar →</button>
+        </div>
+    </section>
+
+    <!-- SESSÃO 4 -->
+    <section id="s4">
+        <h1>4. O Presente</h1>
+        <div class="moldura-foto" style="transform: rotate(3deg);">
+            <img src="img/thisto.jpeg" alt="Presente">
+        </div>
+        <p>Hoje eu posso dizer com convicção, EU NÃO VIVO SEM VOCÊ! Você é uma parte essencial de mim sem a qual eu não sei mais ficar sem. Tenho muito medo de algum dia te perder..., hoje e sempre você é tudo pra mim.</p>
+        <div class="botoes-navegacao">
+            <button class="btn-anterior" onclick="irPara('s3')">← Voltar</button>
+            <button class="btn-proximo" onclick="irPara('s5')">Avançar →</button>
+        </div>
+    </section>
+
+    <!-- SESSÃO 5 -->
+    <section id="s5">
+        <h1>5. O Futuro</h1>
+        <div class="moldura-foto">
+            <img src="img/essatbm.jpeg" alt="Futuro">
+        </div>
+        <p>Estamos construindo um futuro brilhante, não vejo a hora de ter uma criança com seus olhos, seu sorriso, seu jeito..., sei que quando eu olhar pra você daqui a alguns anos esquecerei desse medo bobo de te perder e poderei olhar nos seus olhos e dizer "Obrigado, por sempre estar comigo". E eu sempre estarei com você, até o fim! Agora...</p>
+        <div class="botoes-navegacao">
+            <button class="btn-anterior" onclick="irPara('s4')">← Voltar</button>
+            <button class="btn-proximo" onclick="irPara('pergunta-final')">Finalizar →</button>
+        </div>
+    </section>
+
+    <!-- SESSÃO FINAL -->
+    <section id="pergunta-final">
+        <h1>Aceita continuar nossa história para sempre?</h1>
+        <p id="msg-erro" class="frase-nao"></p>
+        <div class="container-escolha">
+            <button id="btn-sim" onclick="vitoria()">SIM!</button>
+            <button id="btn-nao" onmouseover="foge()" onclick="foge()">Não</button>
+        </div>
+           <div class="botoes-navegacao">
+            <button class="btn-anterior" onclick="irPara('s4')">← Voltar</button>
+        </div>
+    </section>
+
+    <script>
+        function irPara(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let cliquesNoNao = 0;
+        const frases = [
+            "Ta me tirando parça? 🤨",
+            "Vou te dar mais uma chance, vê lá hein! 😠",
+            "Tu não me ama mais? 😢"
+        ];
+
+        function foge() {
+            const btnNao = document.getElementById('btn-nao');
+            const msgErro = document.getElementById('msg-erro');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            
+            btnNao.style.left = x + 'px';
+            btnNao.style.top = y + 'px';
+            btnNao.style.position = 'fixed';
+
+            if (cliquesNoNao < frases.length) {
+                msgErro.innerText = frases[cliquesNoNao];
+                cliquesNoNao++;
+            }
+        }
+
+        function vitoria() {
+            alert("Te amo minha princesa, tu é tudo pra mim ❤️");
+        }
+
+        function criarCoracoes() {
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(heart);
+            }
+        }
+        criarCoracoes();
+    </script>
+</body>
+</html>
